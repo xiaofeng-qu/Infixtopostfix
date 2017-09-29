@@ -12,8 +12,10 @@ public:
         item = new T[MAX_EXPRESSION_LENGTH];
         itemNumber = -1;
     }
+    List(const List &);
     ~List(){
         delete[] item;
+        item = nullptr;
     }
     void append(T);
     // void setItemAtN(T, int);
@@ -23,9 +25,17 @@ public:
     void delNode(T);
     void delNodeAtN(int);
     bool isEmpty();
-    int length();
+    int length() const;
     int find(T);
 };
+template <class T>
+List<T>::List(const List &l){
+    item = new T[MAX_EXPRESSION_LENGTH];
+    itemNumber = l.length() - 1;
+    for(int i=0; i<l.length(); i++){
+        item[i] = l.item[i];
+    }
+}
 
 template <class T>
 void List<T>::append(T it){
@@ -80,7 +90,7 @@ bool List<T>::isEmpty(){
 }
 
 template <class T>
-int List<T>::length(){
+int List<T>::length() const{
     return itemNumber+1;
 }
 
