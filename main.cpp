@@ -2,8 +2,10 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include "ListStack.hpp"
+#include "ListStack.cpp"
 #include "Constants.hpp"
 #include "List.hpp"
+#include "List.cpp"
 using namespace std;
 // Struct to hold operators
 struct Operators{
