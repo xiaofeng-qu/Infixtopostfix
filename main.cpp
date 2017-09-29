@@ -1,6 +1,7 @@
 #include <iostream>
 #include <ctype.h>
 #include <stdlib.h>
+#include <limits>
 #include "ListStack.hpp"
 #include "ListStack.cpp"
 #include "Constants.hpp"
@@ -52,6 +53,8 @@ void menu(){
     cout << "(3) Exit\n" << endl;
     int menuItem;
     cin >> menuItem;
+    cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
     switch(menuItem){
         case 1:
                 infixToPostfix(false);
@@ -145,8 +148,14 @@ int evaluatePostfixExpression(List<Inputs> l){
                       break;
             case '*': postfixEvaluation.multiplyTopTwo();
                       break;
-            case '/': postfixEvaluation.divideTopTwo();
-                      break;
+            case '/':
+                      try{
+                          postfixEvaluation.divideTopTwo();
+                          break;
+                      } catch(char const *err){
+                          cout << err << endl << endl;
+                          menu();
+                      }
             default:
                       if(i == l.find(l[i])){
                         cout << "Please input " << l[i].in << "'s value: ";

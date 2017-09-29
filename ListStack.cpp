@@ -58,6 +58,8 @@ void ListStack<T>::multiplyTopTwo(){
 template <class T>
 void ListStack<T>::divideTopTwo(){
     int top1 = topItem();
+    if ( top1 == 0.0 )
+        throw "Denominator cannot be zero.";
     pop();
     int top2 = topItem();
     pop();
