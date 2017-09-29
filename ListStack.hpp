@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include "LinkedList.hpp"
-#include "LInkedList.cpp"
+#include "LinkedList.cpp"
 #include "Constants.hpp"
 /*
    COPYRIGHT (C) 2017 Xiaofeng Qu (xq6 ) All rights reserved.
