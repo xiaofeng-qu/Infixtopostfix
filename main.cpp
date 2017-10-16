@@ -26,6 +26,7 @@ struct Inputs{
     }
 };
 ostream& operator<<(ostream& os, Inputs input){
+        if(input.in == '#') return os;
         return os << input.in;
 }
 // Transform infix expression to postfix expression.
